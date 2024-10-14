@@ -99,7 +99,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -5)
 material_override = SubResource("StandardMaterial3D_ce1ro")
 polygon = PackedVector2Array(-1, 0, -1, 1, 1, 0, 1, 0)
 depth = 1.5
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.651511, -0.42495, 0.628451, -0.0173376, 0.836516, 0.547668, -0.758441, 0.345916, -0.552368, 14, 6, -16)
-current = true

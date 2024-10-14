@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3skfqo2uumrj"]
+
+[ext_resource type="Script" path="res://Character/Camera/camera_controller.gd" id="1_d2txa"]
+
+[node name="CameraController" type="Node3D"]
+script = ExtResource("1_d2txa")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+spring_length = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+current = true
