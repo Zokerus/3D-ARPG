@@ -10,8 +10,8 @@ script = ExtResource("1_tir21")
 
 [node name="Test World" parent="." instance=ExtResource("1_6r5ae")]
 
-[node name="Player" parent="." instance=ExtResource("2_0d5ml")]
+[node name="Player" parent="." node_paths=PackedStringArray("cameraController") instance=ExtResource("2_0d5ml")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5383, 0, 0)
+cameraController = NodePath("../CameraController")
 
-[node name="CameraController" parent="." node_paths=PackedStringArray("character") instance=ExtResource("3_5gydf")]
-character = NodePath("../Player")
+[node name="CameraController" parent="." instance=ExtResource("3_5gydf")]

@@ -1,8 +1,6 @@
 extends Node3D
 class_name CameraController
 
-@export var character: PlayerCharacter
-
 @onready var spring_arm_3d: SpringArm3D = $SpringArm3D
 
 var h_Sensetivity: float = 0.005
@@ -12,12 +10,11 @@ var Invert_YAxis: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	position = character.position
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position = character.position
+	pass
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
