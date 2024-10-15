@@ -1,17 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://c46pif3pj157j"]
+[gd_scene load_steps=6 format=3 uid="uid://c46pif3pj157j"]
 
 [ext_resource type="Script" path="res://Character/Player/player.gd" id="1_fcdl3"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_00scr"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tufgf"]
+albedo_color = Color(0.12, 0.12, 0.12, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_kqnqt"]
+material = SubResource("StandardMaterial3D_tufgf")
+radius = 0.2
+height = 0.4
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6jswt"]
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 271
 script = ExtResource("1_fcdl3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_00scr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.4, -0.5)
+mesh = SubResource("SphereMesh_kqnqt")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.4, -0.5)
+mesh = SubResource("SphereMesh_kqnqt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

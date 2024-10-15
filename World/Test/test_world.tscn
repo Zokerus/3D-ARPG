@@ -81,21 +81,25 @@ size = Vector3(50, 5, 1)
 [node name="Plattform" type="CSGBox3D" parent="."]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 0, 1, 0)
 material_override = SubResource("StandardMaterial3D_2unff")
+use_collision = true
 size = Vector3(10, 2, 10)
 
 [node name="Plattform2" type="CSGBox3D" parent="."]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -4, 1, -5.75)
 material_override = SubResource("StandardMaterial3D_ad05l")
+use_collision = true
 size = Vector3(1.5, 2, 2)
 
 [node name="Rampe" type="CSGPolygon3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 material_override = SubResource("StandardMaterial3D_ce1ro")
+use_collision = true
 polygon = PackedVector2Array(-1, 0, -1, 1, 1, 0, 1, 0)
 depth = 1.5
 
 [node name="Rampe2" type="CSGPolygon3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -5)
 material_override = SubResource("StandardMaterial3D_ce1ro")
+use_collision = true
 polygon = PackedVector2Array(-1, 0, -1, 1, 1, 0, 1, 0)
 depth = 1.5
