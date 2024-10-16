@@ -1,17 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbbvy3h33v32e"]
+[gd_scene load_steps=4 format=3 uid="uid://bbbvy3h33v32e"]
 
 [ext_resource type="PackedScene" uid="uid://cosl2a43d1r4l" path="res://World/Test/test_world.tscn" id="1_6r5ae"]
 [ext_resource type="Script" path="res://main.gd" id="1_tir21"]
-[ext_resource type="PackedScene" uid="uid://c46pif3pj157j" path="res://Character/Player/player.tscn" id="2_0d5ml"]
-[ext_resource type="PackedScene" uid="uid://d3skfqo2uumrj" path="res://Character/Camera/camera_controller.tscn" id="3_5gydf"]
+[ext_resource type="PackedScene" uid="uid://bj8uwhx2rp0ru" path="res://Character/PlayerController/player_controller.tscn" id="3_lxdyu"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_tir21")
 
 [node name="Test World" parent="." instance=ExtResource("1_6r5ae")]
 
-[node name="Player" parent="." node_paths=PackedStringArray("mainCamera") instance=ExtResource("2_0d5ml")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5383, 0, 0)
-mainCamera = NodePath("../CameraController")
-
-[node name="CameraController" parent="." instance=ExtResource("3_5gydf")]
+[node name="PlayerController" parent="." instance=ExtResource("3_lxdyu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)

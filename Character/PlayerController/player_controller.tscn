@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj8uwhx2rp0ru"]
+
+[ext_resource type="PackedScene" uid="uid://c46pif3pj157j" path="res://Character/Player/player.tscn" id="1_ibbot"]
+[ext_resource type="PackedScene" uid="uid://d3skfqo2uumrj" path="res://Character/Camera/camera_controller.tscn" id="2_a1jm1"]
+
+[node name="PlayerController" type="Node3D"]
+
+[node name="Player" parent="." node_paths=PackedStringArray("mainCamera") instance=ExtResource("1_ibbot")]
+mainCamera = NodePath("../CameraController")
+
+[node name="CameraController" parent="." instance=ExtResource("2_a1jm1")]
