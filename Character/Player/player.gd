@@ -18,10 +18,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	#var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	#var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	CalculateMovement(delta)
 	if movementDirection != Vector3.ZERO:
 		velocity.x = movementDirection.x * SPEED
@@ -36,7 +32,7 @@ func _physics_process(delta: float) -> void:
 
 func CalculateMovement(delta: float):
 	var input_dir: Vector2 = Input.get_vector("Left", "Right", "Forward", "Backward")
-	movementDirection = mainCamera.transform.basis * Vector3(input_dir.x, 0, input_dir.y).normalized()
+	movementDirection = (mainCamera.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if movementDirection != Vector3.ZERO:
-		var rotation_Angle: float = -transform.basis.z.signed_angle_to(movementDirection, Vector3.UP)
-		self.rotate_y(sign(rotation_Angle) * minf(CHARACTER_ROTATION_RATE * delta, absf(rotation_Angle)))
+		#var rotation_Angle: float = -transform.basis.z.signed_angle_to(movementDirection, Vector3.UP)
+		self.rotation.y = lerp_angle(self.rotation.y, atan2(-movementDirection.x, -movementDirection.z), CHARACTER_ROTATION_RATE * delta)

@@ -8,4 +8,6 @@ class_name DebugUI
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var player_position: Vector3 = player.global_position
-	label.text = "Player Position: (%.2f, %.2f, %.2f)" % [player_position.x, player_position.y, player_position.z]
+	label.text = "Player Position: (%.2f, %.2f, %.2f)\n" % [player_position.x, player_position.y, player_position.z]
+	label.text += "Player Direction: %.2f\n" % [player.rotation_degrees.y]
+	label.text += "Movement Direction: (%.2f, %.2f)\n" % [player.movementDirection.x, player.movementDirection.z]

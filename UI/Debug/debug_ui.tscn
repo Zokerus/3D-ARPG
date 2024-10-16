@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnyixu56h1p84"]
+[gd_scene load_steps=3 format=3 uid="uid://dnyixu56h1p84"]
 
 [ext_resource type="Script" path="res://UI/Debug/debug_ui.gd" id="1_3b8v4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hsfl"]
+bg_color = Color(0, 0, 0, 0.423529)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="Debug UI" type="Control"]
 layout_mode = 3
@@ -16,4 +23,5 @@ script = ExtResource("1_3b8v4")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5hsfl")
 text = "Player Position:"
