@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c46pif3pj157j"]
 
-[ext_resource type="Script" path="res://Character/Player/player.gd" id="1_fcdl3"]
+[ext_resource type="Script" path="res://Character/Player/SimplePlayer.gd" id="1_yklyy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_00scr"]
 
@@ -14,10 +14,10 @@ height = 0.4
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6jswt"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="SimplePlayer" type="CharacterBody3D"]
 collision_layer = 4
 collision_mask = 271
-script = ExtResource("1_fcdl3")
+script = ExtResource("1_yklyy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

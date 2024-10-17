@@ -1,7 +1,7 @@
 extends Control
 class_name DebugUI
 
-@export var player: PlayerCharacter
+@export var player: SimplePlayerCharacter
 
 @onready var label: Label = $Label
 

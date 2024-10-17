@@ -1,5 +1,5 @@
 extends CharacterBody3D
-class_name PlayerCharacter
+class_name SimplePlayerCharacter
 
 @export var mainCamera: CameraController
 
