@@ -39,9 +39,12 @@ func _physics_process(delta: float) -> void:
 func CalculateMovement(delta: float) -> void:
 	var input_dir: Vector2 = Input.get_vector("Left", "Right", "Forward", "Backward")
 	movementDirection = (mainCamera.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	animationTree.set("parameters/Running/blend_position", input_dir)
+	#animationTree.set("parameters/Running/blend_position", input_dir)
+	
 	if movementDirection != Vector3.ZERO:
 		#var rotation_Angle: float = -transform.basis.z.signed_angle_to(movementDirection, Vector3.UP)
 		#self.rotation.y = lerp_angle(self.rotation.y, atan2(-movementDirection.x, -movementDirection.z), CHARACTER_ROTATION_RATE * delta)
-		pass
-		
+		animationTree.set("parameters/Locomotion/transition_request", "Move")
+		animationTree.set("parameters/Movement/transition_request", "Walk")
+	else:
+		animationTree.set("parameters/Locomotion/transition_request", "Idle")
