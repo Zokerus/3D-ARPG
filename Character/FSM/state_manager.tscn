@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj6jxelh8infx"]
+
+[ext_resource type="Script" path="res://Character/FSM/state_manager.gd" id="1_8ingb"]
+
+[node name="StateManager" type="Node"]
+script = ExtResource("1_8ingb")

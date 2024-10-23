@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgs6f4yhhrwtr"]
+
+[ext_resource type="Script" path="res://Character/FSM/base_state.gd" id="1_v8jin"]
+
+[node name="BaseState" type="Node"]
+script = ExtResource("1_v8jin")
