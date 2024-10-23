@@ -15,3 +15,12 @@ func Enter()-> void:
 	
 func Exit()-> void:
 	pass
+
+func Process(delta: float) -> void:
+	pass
+	
+func PhysicsProcess(delta: float) -> void:
+	pass
+
+func HhandleInput(event: InputEvent) -> void:
+	pass

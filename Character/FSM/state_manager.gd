@@ -18,7 +18,9 @@ func ParentReady() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	currentState.Process(delta)
+	if currentState:
+		currentState.Process(delta)
 
 func _physics_process(delta: float) -> void:
-	currentState.PhysicsProcess(delta)
+	if currentState:
+		currentState.PhysicsProcess(delta)

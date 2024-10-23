@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ivdcslifbr4y"]
+
+[ext_resource type="Script" path="res://Character/FSM/States/idle.gd" id="1_xup4d"]
+
+[node name="Idle" type="Node"]
+script = ExtResource("1_xup4d")

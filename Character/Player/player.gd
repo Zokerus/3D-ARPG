@@ -46,4 +46,5 @@ func CalculateMovement(delta: float) -> void:
 		animationTree.set("parameters/Locomotion/transition_request", "Move")
 		animationTree.set("parameters/Movement/transition_request", "Walk")
 	else:
-		animationTree.set("parameters/Locomotion/transition_request", "Idle")
+		pass
+		#animationTree.set("parameters/Locomotion/transition_request", "Idle")
