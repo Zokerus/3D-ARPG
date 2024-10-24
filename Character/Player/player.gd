@@ -37,14 +37,15 @@ func _physics_process(delta: float) -> void:
 	mainCamera.position = self.position
 
 func CalculateMovement(delta: float) -> void:
-	var input_dir: Vector2 = Input.get_vector("Left", "Right", "Forward", "Backward")
-	movementDirection = (mainCamera.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	var rotation_Angle: float = transform.basis.z.signed_angle_to(movementDirection, Vector3.UP)
-	self.rotate_y(signf(rotation_Angle) * minf(CHARACTER_ROTATION_RATE * delta, absf(rotation_Angle)))
-	
-	if movementDirection != Vector3.ZERO:
-		animationTree.set("parameters/Locomotion/transition_request", "Move")
-		animationTree.set("parameters/Movement/transition_request", "Walk")
-	else:
-		pass
+	pass
+	#var input_dir: Vector2 = Input.get_vector("Left", "Right", "Forward", "Backward")
+	#movementDirection = (mainCamera.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	#var rotation_Angle: float = transform.basis.z.signed_angle_to(movementDirection, Vector3.UP)
+	#self.rotate_y(signf(rotation_Angle) * minf(CHARACTER_ROTATION_RATE * delta, absf(rotation_Angle)))
+	#
+	#if movementDirection != Vector3.ZERO:
+		#animationTree.set("parameters/Locomotion/transition_request", "Move")
+		#animationTree.set("parameters/Movement/transition_request", "Walk")
+	#else:
+		#pass
 		#animationTree.set("parameters/Locomotion/transition_request", "Idle")
