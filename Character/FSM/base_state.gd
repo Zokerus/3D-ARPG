@@ -19,11 +19,11 @@ func Enter()-> void:
 func Exit()-> void:
 	pass
 
-func Process(delta: float) -> void:
-	pass
+func Process(delta: float) -> BaseState:
+	return null
 	
-func PhysicsProcess(delta: float) -> void:
-	pass
+func PhysicsProcess(delta: float) -> BaseState:
+	return null
 
-func HandleInput(event: InputEvent) -> void:
-	pass
+func HandleInput(event: InputEvent) -> BaseState:
+	return null
