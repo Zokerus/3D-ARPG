@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmjtxdl26ujur"]
+
+[ext_resource type="Script" path="res://Character/FSM/States/jump.gd" id="1_u5f53"]
+
+[node name="Jump" type="Node"]
+script = ExtResource("1_u5f53")

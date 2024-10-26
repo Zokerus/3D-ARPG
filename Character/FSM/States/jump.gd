@@ -1,12 +1,11 @@
 extends BaseState
-class_name IdleState
+class_name JumpState
 
-@export var jumpState: BaseState
+@export var idleState: BaseState
 
 func _ready() -> void:
-	stateName = "Idle"
+	stateName = "Jump"
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func PhysicsProcess(delta: float) -> BaseState:
 	super.PhysicsProcess(delta)
 	animationTree.set("parameters/Locomotion/transition_request", "Idle")
@@ -14,10 +13,11 @@ func PhysicsProcess(delta: float) -> BaseState:
 
 func HandleInput(event: InputEvent) -> BaseState:
 	var input_dir: Vector2 = Input.get_vector("Left", "Right", "Forward", "Backward")
-	if input_dir != Vector2.ZERO:
-		pass
-	
+		
+	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and character.is_on_floor():
-		return jumpState
+		character.velocity.y = character.JUMP_VELOCITY
 	
+	if input_dir == Vector2.ZERO and character.is_on_floor():
+		return idleState
 	return null

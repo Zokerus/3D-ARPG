@@ -4,16 +4,19 @@ class_name PlayerCharacter
 @export var mainCamera: CameraController
 
 @onready var animationTree: AnimationTree = $AnimationTree
+@onready var stateManager: StateManager = $StateManager
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const CHARACTER_ROTATION_RATE = 4*PI;
 
 var movementDirection: Vector3 = Vector3.ZERO
+var movement: Vector3 = Vector3.ZERO
 
 func _ready() -> void:
 	if !mainCamera:
 		get_tree().quit()
+	stateManager.ParentReady()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -21,8 +24,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		#velocity.y = JUMP_VELOCITY
 
 	CalculateMovement(delta)
 	var currentRotation: Quaternion = transform.basis.get_rotation_quaternion()

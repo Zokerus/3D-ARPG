@@ -5,6 +5,7 @@ var stateManager: StateManager
 var character: CharacterBody3D
 var animationTree: AnimationTree
 
+var stateName: String
 var initialized: bool = false
 
 func Init(state_Manager: StateManager, characterBody: CharacterBody3D, animTree: AnimationTree) -> void:
