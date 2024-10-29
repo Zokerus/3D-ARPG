@@ -7,9 +7,9 @@
 [node name="PlayerController" type="Node3D"]
 
 [node name="Player" parent="." node_paths=PackedStringArray("mainCamera") instance=ExtResource("1_ibbot")]
-mainCamera = NodePath("../CameraController")
+mainCamera = NodePath("CameraController")
 
-[node name="CameraController" parent="." instance=ExtResource("2_a1jm1")]
+[node name="CameraController" parent="Player" instance=ExtResource("2_a1jm1")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

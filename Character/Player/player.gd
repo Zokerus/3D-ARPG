@@ -37,7 +37,6 @@ func _physics_process(delta: float) -> void:
 	velocity.z = root_velocity.z
 	
 	move_and_slide()
-	mainCamera.position = self.position
 
 func CalculateMovement(delta: float) -> void:
 	pass

@@ -8,7 +8,10 @@ func _ready() -> void:
 
 func PhysicsProcess(delta: float) -> BaseState:
 	super.PhysicsProcess(delta)
-	animationTree.set("parameters/Locomotion/transition_request", "Idle")
+	
+	if character.movementDirection == Vector3.ZERO and character.is_on_floor():
+		return idleState
+	
 	return null
 
 func HandleInput(event: InputEvent) -> BaseState:
@@ -18,6 +21,4 @@ func HandleInput(event: InputEvent) -> BaseState:
 	if Input.is_action_just_pressed("ui_accept") and character.is_on_floor():
 		character.velocity.y = character.JUMP_VELOCITY
 	
-	if input_dir == Vector2.ZERO and character.is_on_floor():
-		return idleState
 	return null
