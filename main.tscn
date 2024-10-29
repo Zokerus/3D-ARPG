@@ -10,4 +10,4 @@ script = ExtResource("1_tir21")
 [node name="Test World" parent="." instance=ExtResource("1_6r5ae")]
 
 [node name="PlayerController" parent="." instance=ExtResource("3_lxdyu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.176, 0, 0)
