@@ -10,6 +10,7 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const CHARACTER_ROTATION_RATE = 4*PI;
 
+var inputDirection: Vector2 = Vector2.ZERO
 var movementDirection: Vector3 = Vector3.ZERO
 var movement: Vector3 = Vector3.ZERO
 
@@ -22,7 +23,12 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
+	#Handle directional input events
+	inputDirection = Input.get_vector("Left", "Right", "Forward", "Backward")
+	
+	#Handle the StateManager physics process
+	stateManager.PhysicsProcess(delta)
 	# Handle jump.
 	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		#velocity.y = JUMP_VELOCITY
@@ -38,6 +44,9 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	mainCamera.position = self.position
+
+func _unhandled_input(event: InputEvent) -> void:
+	stateManager.HandleInput(event)
 
 func CalculateMovement(delta: float) -> void:
 	pass

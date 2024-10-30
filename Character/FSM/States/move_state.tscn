@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ihn4hx3h738x"]
-
-[ext_resource type="Script" path="res://Character/FSM/States/move_state.gd" id="1_go8du"]
-
-[node name="MoveState" type="Node"]
-script = ExtResource("1_go8du")

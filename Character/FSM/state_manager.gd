@@ -17,16 +17,16 @@ func ParentReady() -> void:
 	currentState.Enter()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func Process(delta: float) -> void:
 	if currentState.initialized:
 		ChangeState(currentState.Process(delta))
 		
 
-func _physics_process(delta: float) -> void:
+func PhysicsProcess(delta: float) -> void:
 	if currentState.initialized:
 		ChangeState(currentState.PhysicsProcess(delta))
 
-func _unhandled_input(event: InputEvent) -> void:
+func HandleInput(event: InputEvent) -> void:
 	if currentState.initialized:
 		if ChangeState(currentState.HandleInput(event)):
 			currentState.HandleInput(event)

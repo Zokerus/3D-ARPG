@@ -2,6 +2,7 @@ extends BaseState
 class_name IdleState
 
 @export var jumpState: BaseState
+@export var moveState: BaseState
 
 func _ready() -> void:
 	stateName = "Idle"
@@ -10,14 +11,12 @@ func _ready() -> void:
 func PhysicsProcess(delta: float) -> BaseState:
 	super.PhysicsProcess(delta)
 	animationTree.set("parameters/Locomotion/transition_request", "Idle")
+	
+	if character.inputDirection != Vector2.ZERO:
+		return moveState
 	return null
 
 func HandleInput(event: InputEvent) -> BaseState:
-	var input_dir: Vector2 = Input.get_vector("Left", "Right", "Forward", "Backward")
-	if input_dir != Vector2.ZERO:
-		pass
-	
 	if Input.is_action_just_pressed("ui_accept") and character.is_on_floor():
 		return jumpState
-	
 	return null
