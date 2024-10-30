@@ -4,8 +4,15 @@ class_name MoveState
 @export var idleState: BaseState
 @export var jumpState: BaseState
 
+var walkFactor: bool = false
+var sprintFactor: bool = false
+
 func _ready() -> void:
 	stateName = "Move"
+
+func Enter()-> void:
+	walkFactor = false
+	sprintFactor = false
 
 func PhysicsProcess(delta: float) -> BaseState:
 	super.PhysicsProcess(delta)
@@ -20,6 +27,17 @@ func HandleInput(event: InputEvent) -> BaseState:
 	if Input.is_action_just_pressed("ui_accept") and character.is_on_floor():
 		return jumpState
 	
+	if event.is_action_pressed("Sprint"):
+		sprintFactor = true
+		
+	if event.is_action_released("Sprint"):
+		sprintFactor = false
+	
+	if event.is_action_pressed("Walk"):
+		walkFactor = true;
+	
+	if event.is_action_released("Walk"):
+		walkFactor = false
 	return null
 
 func CalculateMovement(input_dir: Vector2, delta: float) -> void:
@@ -29,4 +47,9 @@ func CalculateMovement(input_dir: Vector2, delta: float) -> void:
 	
 	if character.movementDirection != Vector3.ZERO:
 		animationTree.set("parameters/Locomotion/transition_request", "Move")
-		animationTree.set("parameters/Movement/transition_request", "Walk")
+		if walkFactor:
+			animationTree.set("parameters/Movement/transition_request", "Walk")
+		elif sprintFactor:
+			animationTree.set("parameters/Movement/transition_request", "Sprint")
+		else:
+			animationTree.set("parameters/Movement/transition_request", "Run")
