@@ -17,6 +17,6 @@ func PhysicsProcess(delta: float) -> BaseState:
 	return null
 
 func HandleInput(event: InputEvent) -> BaseState:
-	if Input.is_action_just_pressed("ui_accept") and character.is_on_floor():
+	if Input.is_action_just_pressed("Jump") and character.is_on_floor():
 		return jumpState
 	return null

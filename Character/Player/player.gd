@@ -14,6 +14,8 @@ var inputDirection: Vector2 = Vector2.ZERO
 var movementDirection: Vector3 = Vector3.ZERO
 var movement: Vector3 = Vector3.ZERO
 
+var isJumping: bool = false	#in case of jumping, avoid root motion in vertical movement
+
 func _ready() -> void:
 	if !mainCamera:
 		get_tree().quit()
@@ -29,35 +31,22 @@ func _physics_process(delta: float) -> void:
 	
 	#Handle the StateManager physics process
 	stateManager.PhysicsProcess(delta)
-	# Handle jump.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
 
-	CalculateMovement(delta)
 	var currentRotation: Quaternion = transform.basis.get_rotation_quaternion()
 	var root_position: Vector3 = animationTree.get_root_motion_position()
 	var root_velocity: Vector3 = (currentRotation.normalized() * root_position) / delta
 	
 	velocity.x = root_velocity.x
-	velocity.y -= root_velocity.y
+	if !isJumping:
+		velocity.y += root_velocity.y
 	velocity.z = root_velocity.z
-	
+	 
 	move_and_slide()
 	mainCamera.position = self.position
 
 func _unhandled_input(event: InputEvent) -> void:
 	stateManager.HandleInput(event)
 
-func CalculateMovement(delta: float) -> void:
-	pass
-	#var input_dir: Vector2 = Input.get_vector("Left", "Right", "Forward", "Backward")
-	#movementDirection = (mainCamera.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	#var rotation_Angle: float = transform.basis.z.signed_angle_to(movementDirection, Vector3.UP)
-	#self.rotate_y(signf(rotation_Angle) * minf(CHARACTER_ROTATION_RATE * delta, absf(rotation_Angle)))
-	#
-	#if movementDirection != Vector3.ZERO:
-		#animationTree.set("parameters/Locomotion/transition_request", "Move")
-		#animationTree.set("parameters/Movement/transition_request", "Walk")
-	#else:
-		#pass
-		#animationTree.set("parameters/Locomotion/transition_request", "Idle")
+func JumpAnimationTrigger()-> void:
+	isJumping = true
+	velocity.y = JUMP_VELOCITY
